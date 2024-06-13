@@ -37,7 +37,7 @@ cd ~/android/lineage
 repo init -u https://github.com/LineageOS/android.git -b lineage-19.1 --git-lfs
 
 # Download the source code
-repo sync -j 6 # todo get CPU cores from nproc
+repo sync -j $(nproc)
 
 # Clone the DT
 mkdir -p device/lenovo/kuntao
