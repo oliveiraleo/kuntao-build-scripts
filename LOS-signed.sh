@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # Vars
-LOS_VERSION="lineage-20.0"
+LOS_VERSION="lineage-20.0" # select LOS version to be built
+DATE=$(date +'%Y%m%d') # store the updated date
 
 # Check shell type first
 case "$-" in
@@ -60,6 +61,7 @@ rm device/lenovo/kuntao/vendorsetup.sh
 echo "Warmup finished. If not yet done, create the keys before proceeding"
 
 ## TODO create a parameter to enable the build only and another to the warmup
+# TODO Kill the script if fatal errors arise
 
 # Build
 breakfast kuntao
@@ -193,4 +195,4 @@ sign_target_files_apks -o -d ~/.android-certs \
 ota_from_target_files -k ~/.android-certs/releasekey \
     --block --backup=true \
     signed-target_files.zip \
-    signed-ota_update.zip
+    $LOS_VERSION-$DATE-UNOFFICIAL-kuntao.zip
