@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Vars
-LOS_VERSION="lineage-20.0" # select LOS version to be built
+LOS_VERSION="lineage-19.1" # select LOS version to be built (e.g. lineage-19.1 or lineage-20.0 or lineage-21.0)
 DATE=$(date +'%Y%m%d') # store the updated date
 
 # Check shell type first
@@ -49,7 +49,7 @@ repo sync -j $(nproc)
 
 # Clone the DT
 mkdir -p device/lenovo/kuntao
-git clone -b $LOS_VERSION https://github.com/Astridxx/android_device_lenovo_kuntao device/lenovo/kuntao
+git clone -b $LOS_VERSION https://github.com/oliveiraleo/android_device_lenovo_kuntao device/lenovo/kuntao
 
 # Prepare device-specific code (clones kernel, vendor, device patches, etc trees)
 source build/envsetup.sh
